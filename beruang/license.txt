@@ -1,0 +1,11 @@
+Model Information:
+* title:	TEDDY  BEAR
+* source:	https://sketchfab.com/3d-models/teddy-bear-f2dfc8e3d88b4304b2bc17f90d595a05
+* author:	liebherr996litronic (https://sketchfab.com/liebherr996litronic)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "TEDDY  BEAR" (https://sketchfab.com/3d-models/teddy-bear-f2dfc8e3d88b4304b2bc17f90d595a05) by liebherr996litronic (https://sketchfab.com/liebherr996litronic) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

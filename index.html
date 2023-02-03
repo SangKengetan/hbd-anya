@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HBD Anyaaa</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/output.css"/> 
+    </head>
+    <body class = "bg-red-100 font-poppins">
+
+      <div class= "flex flex-wrap items-center justify-center ml-56 relative">
+        <div class = "container max-w-4dxl bg-white rounded shadow-xl m-12"> 
+          <div class = "h-96 overflow-hidden rounded-t">
+            <img class = "w-full rounded-t -mt-96" src="img/3.jpg" alt = "Photo by Madison Oren On Unsplash" />
+          </div>
+          <div class = "flex justify-center px-5 -mt-24 mb-5">
+            <span class = "block h-64 w-64" >
+              <img class = "mx-auto object-cover rounded-full bg-white p-1.5"src = "img/Gek.jpg" alt= "Anyaa" />
+            </span>
+          </div>
+          <div class = "px-7 mb-8">
+            <h1 class = "text-8xl font-bold text-merah-aja text-center font-aksara">ᬲ᭄ᬯᬲ᭄ᬢᬶ​ᬯᬦ᭄ᬢᬶ​ᬯᬃᬲ​ᬳᬜ</h1>
+            <h2 class = "text-5xl mt-20 font-bold text-merah-aja text-center">Swasti Wanti Warsa Anya!</h2>
+            <p class="text-2xl text-center italic text-slate-500 mt-10" >Semoga panjang umur, sehat selalu, lancar di sekolah. Wish You All the Best!</p>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+        <div class="box absolute -z-10 top"></div>
+        
+        <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+        <script type="importmap">
+          {
+            "imports": {
+              "three": "https://unpkg.com/three@0.149.0/build/three.module.js",
+              "controls" : "https://unpkg.com/three@0.149.0/examples/jsm/controls/OrbitControls.js",
+              "loaders" : "https://unpkg.com/three@0.149.0/examples/jsm/loaders/GLTFLoader.js"
+            }
+          }
+        </script>
+        
+        <script type="module">
+        
+            import * as THREE from 'three';
+            import { OrbitControls } from 'controls';
+            import { GLTFLoader } from 'loaders';
+        
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+            const renderer = new THREE.WebGLRenderer( {alpha: true} );
+
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            const box = document.querySelector('.box');
+            box.appendChild( renderer.domElement );
+
+
+            const controls = new OrbitControls( camera, renderer.domElement );
+            
+
+            // const geometry = new THREE.BoxGeometry();
+            // const material = new THREE.MeshLambertMaterial( { color: 0x00ff00 } );
+            // const cube = new THREE.Mesh( geometry, material );
+            // scene.add( cube );
+
+            camera.position.z = 10; //kamera menjauh dari objek
+            camera.position.x = 5;
+            camera.position.y = 7;
+
+
+            const ambientLight = new THREE.AmbientLight( 0xffffff, 10); // soft white light
+            scene.add( ambientLight );
+
+            const pointLight = new THREE.PointLight( 0xffffff, 1, 100 );
+            pointLight.position.set( 50, 50, 50 );
+            scene.add( pointLight );
+
+            const loader = new GLTFLoader();
+            
+            let kue;
+            let boneka;
+            let balon;
+
+            loader.load( 'cake_for_sketchfabday/scene.gltf', function ( gltf ) {
+                kue = gltf.scene;
+                kue.scale.set(30,30,30);
+                kue.position.x = -2;
+                kue.position.y = 3;
+                scene.add( gltf.scene );
+            });
+
+            loader.load( 'beruang/scene.gltf', function ( gltf ) {
+              boneka = gltf.scene;
+              boneka.position.z = -5;
+              boneka.position.x = 0;
+              boneka.position.y = 1.5;
+            
+              scene.add ( gltf.scene );
+            });
+
+            loader.load( 'balon/scene.gltf', function ( gltf ) {
+              balon = gltf.scene;
+              balon.position.z = -3.5;
+              balon.position.x = 15;
+              balon.position.y = 5;
+              balon.scale.set(5,5,5);
+            
+              scene.add ( gltf.scene );
+            });
+            
+
+            function animate() {
+            requestAnimationFrame( animate );
+            if(kue){
+                kue.rotation.y += 0.01;
+                balon.rotation.y += 0.01;
+            }
+           
+            // cube.rotation.z += 0.01;
+            // cube.rotation.y += 0.01;
+            renderer.render( scene, camera );
+            }
+            animate();
+        </script>
+    </body>
+</html>
